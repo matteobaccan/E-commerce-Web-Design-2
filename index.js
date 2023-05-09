@@ -1,5 +1,16 @@
-//Initialize Swiper
-     var swiper = new Swiper(".mySwiper", {});
+//Initialize Swiper 
+var swiper = new Swiper(".mySwiper", {
+  spaceBetween: 30,
+  centeredSlides: true,
+  autoplay: {
+    delay: 2500,
+    disableOnInteraction: false,
+  },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+});
 //Initialize Swiper2
      var swiper = new Swiper(".mySwiper2", {
        slidesPerView: 1,
@@ -23,4 +34,3 @@
          },
        },
      });
-   
