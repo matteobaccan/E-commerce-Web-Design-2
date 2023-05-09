@@ -1,21 +1,17 @@
 <!DOCTYPE html>
 <!-- ChatGPT: mi scrivi una pagina di dettaglio prodotto con bootstrap5 -->
-<html lang="it">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dettaglio prodotto</title>
-  <meta name="description" content="pagina dettaglio del prodotto selezionato con descrizione e possibilità di acquisto.">
-  <meta name="author" content="Alessia Colpo">
-  <meta name="keywords" content="Accademia, belle arti, arte, università, laurea, graphic design, fumetto, manga, giappone, akihabara, otaku, nerd, shoujo, shounen, spokon, seinen">
-  <link rel="shortcut icon" href="immagini/favicon.jpeg"/>
   <!-- Collegamento ai file CSS di Bootstrap -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
   <!-- CSS -->
-<link href="prodotto.css" rel="stylesheet">
+  <link href="prodotto.css" rel="stylesheet">
 </head>
+
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -37,7 +33,7 @@
               <a class="nav-link" href="prodotti.html">Prodotti</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="carrello.html">Carrello <span id="carrello">0</span></a>
+              <a class="nav-link" href="carrello.html">Carrello</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Contatti</a>
@@ -48,10 +44,10 @@
     </nav>
   </header>
 
-  <main class="container mt-5">
+  <main class="container my-5">
     <div class="row">
-      <div class="col-md-6" style="text-align:center;">
-        <img src="https://via.placeholder.com/255x344" alt="Immagine di esempio" class="img-fluid">
+      <div class="col-md-6">
+        <img src="https://via.placeholder.com/600x400" alt="Immagine di esempio" class="img-fluid">
       </div>
       <div class="col-md-6">
         <h1 class="mb-4">Nome prodotto</h1>
@@ -64,31 +60,146 @@
             <label for="quantita" class="form-label">Quantità:</label>
             <input type="number" class="form-control" id="quantita" min="1" value="1">
           </div>
-          <span class="btn btn-primary" onclick="Aggiungialcarrello(this)">Aggiungi al carrello</span>
+          <span class="btn btn-primary">Aggiungi al carrello</span>
         </form>
       </div>
     </div>
   </main>
 
-  <footer class="bg-dark text-light py-3">
-    <div class="container text-center">
-      <p>&copy; 2023 Il mio sito - Tutti i diritti riservati</p>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <a href="?id=1" class="btn btn-success">Prodotto 1</a>
+      </div>
+      <div class="col">
+        <a href="?id=2" class="btn btn-success">Prodotto 2</a>
+      </div>
+      <div class="col">
+        <a href="?id=3" class="btn btn-success">Prodotto 3</a>
+      </div>
     </div>
-  </footer>
+  </div>
+
+  <!-- Footer -->
+<footer class="text-center text-lg-start bg-white text-muted">
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <img id="logo"src="immagini/download.png">
+          <p>
+            Via Giuseppe Trapani, n.20 <br>
+            00133 Roma 
+            Italia
+          </p>
+        </div>
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            INFORMAZIONI
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">Termini e condizioni</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Spedizioni e resi</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Domande frequenti</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Ambiente</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">CONTATTI</h6>
+            <p>info@example.com</p>
+          
+          <p>+39 234 567 889</p>
+
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+
+  <!-- Copyright -->
+  <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.025);">
+    ©2023 Manga Fun s.r.l.s P.IVA: 18971556005
+  </div>
+</footer>
 
 
-
-
-  <script>
-    function Aggiungialcarrello(o) {
-      var quantita = document.getElementById("quantita").value;
-      var carrello = document.getElementById("carrello").innerHTML;
-      var totale = parseInt(carrello) + parseInt(quantita);
-      document.getElementById("carrello").innerHTML = totale;
-    }
-  </script>
   <!-- Collegamento ai file JavaScript di Bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // prendi un parametro da url
+    // https://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
+    function getParameterByName(name, url) {
+      url = window.location.href;
+      name = name.replace(/[\[\]]/g, '\\$&');
+      var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+      if (!results) return null;
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+
+    // Prendi l'id del prodotto dalla url
+    let id = getParameterByName('id');
+
+    // Elenco prodotti
+    let prodotti = [{
+      "id": 1,
+      "nome": "Chainsaw Man 12",
+      "prezzo": 10.00,
+      "descrizione": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis lacus nec ante sagittis ultrices vel vitae justo. Fusce at erat neque. Nunc ultrices risus sed sapien faucibus, a elementum nibh vestibulum. Sed ut metus nulla. Nulla in nisi in elit consectetur mollis. ",
+      "immagine": "https://via.placeholder.com/600x400"
+    },
+    {
+      "id": 2,
+      "nome": "Prodotto 2",
+      "prezzo": 20.00,
+      "descrizione": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis lacus nec ante sagittis ultrices vel vitae justo. Fusce at erat neque. Nunc ultrices risus sed sapien faucibus, a elementum nibh vestibulum. Sed ut metus nulla. Nulla in nisi in elit consectetur mollis. ",
+      "immagine": "https://via.placeholder.com/600x400"
+    },
+    {
+      "id": 3,
+      "nome": "Prodotto 3",
+      "prezzo": 30.00,
+      "descrizione": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis lacus nec ante sagittis ultrices vel vitae justo. Fusce at erat neque. Nunc ultrices risus sed sapien faucibus, a elementum nibh vestibulum. Sed ut metus nulla. Nulla in nisi in elit consectetur mollis. ",
+      "immagine": "https://via.placeholder.com/600x400"
+    }
+    ];
+
+    // Prendi il prodotto con id uguale a quello passato in GET
+    let prodotto = prodotti.find(p => p.id == id);
+
+    // Se non trovi il prodotto, mostra un messaggio di errore
+    if (!prodotto) {
+      document.querySelector('main').innerHTML = '<h1>Prodotto non trovato</h1>';
+    } else {
+      // Altrimenti, mostra il prodotto
+      document.querySelector('h1').innerHTML = prodotto.nome;
+      document.querySelector('img').src = prodotto.immagine;
+      document.querySelector('p').innerHTML = prodotto.descrizione;
+      document.querySelector('h2').innerHTML = 'Prezzo: €' + prodotto.prezzo;
+    }
+
+  </script>
 </body>
 
 </html>
