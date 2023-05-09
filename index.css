@@ -1,3 +1,17 @@
+ /*swiper*/
+.swiper1{
+  width: 100%;
+
+}
+.swiper-slide1 {
+  text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
+
 .swiper-slide img {
   display: block;
   width: 100%;
@@ -34,6 +48,10 @@
     margin-bottom: 30px;
     
 }
+.nome{
+ max-width: 355px;
+ height: 40px;
+}
 
 #logo{
 
@@ -49,4 +67,3 @@ footer {
     height: 2.5rem; 
     z-index:1;
 }
-
