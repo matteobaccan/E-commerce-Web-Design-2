@@ -1,9 +1,50 @@
- /*swiper*/
-.swiper1{
-  width: 100%;
-
+ /*Navbar*/
+.custom-navbar .navbar-nav .nav-link {
+  color:gray; /* Colore del testo dei link */
 }
-.swiper-slide1 {
+.custom-navbar .navbar-nav .nav-link.active {
+  color:black; 
+}
+/*Barra di ricerca*/
+.search-input {
+  display: none;
+}
+.show-search-input {
+  display: block !important;
+}
+#search-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+#search-overlay .container {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#search-form-overlay {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 4px;
+}
+#search-icon{font-size: 30px !important;}
+
+@media (max-width: 991px) {
+  #search-form {
+    display: none;
+  }
+}
+/*swiper*/
+.mySwiper1{
+  width: 100% !important;
+}
+.swiper-slide {
   text-align: center;
       font-size: 18px;
       background: #fff;
@@ -26,7 +67,7 @@
   display:block;
 }
 
- .swiper {
+ .mySwiper2 {
     width: 60%;
     height: 100%;
   }
@@ -34,6 +75,7 @@
     display: block;
     width: 100%;
     height: 100%;
+
   }
   .swiper-pagination2  {
     text-align: center;
@@ -47,10 +89,6 @@
     margin-top: 10px;
     margin-bottom: 30px;
     
-}
-.nome{
- max-width: 355px;
- height: 40px;
 }
 
 #logo{
@@ -67,3 +105,4 @@ footer {
     height: 2.5rem; 
     z-index:1;
 }
+
