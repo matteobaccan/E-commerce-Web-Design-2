@@ -1,37 +1,42 @@
-//FILTRO 
-    document.querySelector('form').addEventListener('change', function(event) {
-      
-      var category = document.querySelector('#category').value;
-      var price = document.querySelector('input[name=price]:checked').value;
-      
-      console.log('Categoria selezionata:', category);
-      console.log('Prezzo selezionato:', price);
-      
-      var products = document.querySelectorAll('.product');
-      
-      products.forEach(function(product) {
-        var productCategory = product.getAttribute('data-category');
-        var productPrice = parseFloat(product.getAttribute('data-price'));
-        
-        var displayProduct = true;
-        
-        if (category !== 'all' && category !== productCategory) {
-          displayProduct = false;
-        }
-        
-        if (price === '<10' && productPrice >= 10) {
-          displayProduct = false;
-        } else if (price === '10-50' && (productPrice < 10 || productPrice > 50)) {
-          displayProduct = false;
-        } else if (price === '>50' && productPrice <= 50) {
-          displayProduct = false;
-        }
-        
-        if (displayProduct) {
-          product.style.display = 'block';
-        } else {
-          product.style.display = 'none';
-        }
-      });
-    });
+// Ottieni i riferimenti agli elementi del DOM
+ const searchIcon = document.getElementById('search-icon');
+ const searchInput = document.querySelector('.search-input');
 
+ // Aggiungi un gestore di eventi al clic sull'icona di ricerca
+ searchIcon.addEventListener('click', function() {
+   // Verifica se il campo di input di ricerca ha la classe 'show-search-input'
+   if (searchInput.classList.contains('show-search-input')) {
+     // Rimuovi la classe 'show-search-input' per nascondere il campo di input di ricerca
+     searchInput.classList.remove('show-search-input');
+   } else {
+     // Aggiungi la classe 'show-search-input' per mostrare il campo di input di ricerca
+     searchInput.classList.add('show-search-input');
+     searchInput.focus(); // Facoltativo: mette il focus sul campo di input
+   }
+ });
+
+
+var priceRange = document.getElementById('priceRange');
+    var priceDisplay = document.getElementById('priceDisplay');
+
+    priceRange.oninput = function() {
+      priceDisplay.innerHTML = '€' + priceRange.value;
+    };
+
+    function filterProducts() {
+      var selectedCategory = document.getElementById('categoryDropdown').value;
+      var priceRangeValue = document.getElementById('priceRange').value;
+      var products = document.getElementsByClassName('product');
+
+      for (var i = 0; i < products.length; i++) {
+        var productPrice = parseInt(products[i].getAttribute('data-price'));
+        var categoryMatch = selectedCategory === 'tutti' || products[i].classList.contains(selectedCategory);
+        var priceMatch = productPrice <= priceRangeValue;
+
+        if (categoryMatch && priceMatch) {
+          products[i].style.display = 'block';
+        } else {
+          products[i].style.display = 'none';
+        }
+      }
+    }
