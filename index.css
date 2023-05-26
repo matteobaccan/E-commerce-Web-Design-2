@@ -5,6 +5,14 @@
 .custom-navbar .navbar-nav .nav-link.active {
   color:black; 
 }
+#logonav{
+  width: 25%;
+}
+@media screen and (max-width: 500px){
+  #logonav {
+    width:60%;
+  }
+}
 /*Barra di ricerca*/
 .search-input {
   display: none;
@@ -44,15 +52,6 @@
 .mySwiper1{
   width: 100% !important;
 }
-.swiper-slide {
-  text-align: center;
-      font-size: 18px;
-      background: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-}
-
 .swiper-slide img {
   display: block;
   width: 100%;
@@ -60,13 +59,8 @@
   object-fit: cover;
 }
 
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-  display:block;
-}
 
+/*swiper2*/
  .mySwiper2 {
     width: 60%;
     height: 100%;
@@ -77,25 +71,26 @@
     height: 100%;
 
   }
+  .swiper-slide {
+    text-align: center;
+    display:block;
+  }
   .swiper-pagination2  {
     text-align: center;
     margin-top: 30px;
     margin-bottom: 20px;
-  }
-
- 
+    }
+  
 .cluster {
     text-align: center;
     margin-top: 10px;
-    margin-bottom: 30px;
-    
+    margin-bottom: 10px;
 }
-
 #logo{
-
   width: 150px;
   text-align: center;
   margin-top: 0px;
+  margin-bottom: 20px;
 }
 
 footer {
@@ -103,6 +98,24 @@ footer {
     color: white;
     width: 100%;
     height: 2.5rem; 
-    z-index:1;
+}
+#copyright{
+  background-color: darkred;
+  color: #fff;
+  opacity: 85%;
 }
 
+/*scrolltop*/
+.top {
+  position: fixed;
+  bottom: 10px;
+  right: 15px;
+  width: 55px;
+  text-align: center;
+  padding: 6px;
+}
+#toparrow {
+  max-width: 50px;
+  cursor:pointer;
+ z-index: 1;
+}
